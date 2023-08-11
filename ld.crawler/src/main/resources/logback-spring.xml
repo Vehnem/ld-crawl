@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!--https://gist.github.com/jeroenr/e5e54af6bc1868216a9da58f1e2f5984-->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <!--<include resource="org/springframework/boot/logging/logback/file-appender.xml" />-->
+    <!--<property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}spring.log}"/>-->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!--<target>System.err</target>-->
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+    <appender name="STDERR" class="ch.qos.logback.core.ConsoleAppender">
+        <target>System.err</target>
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+<!--    <appender name="FETCHLOG" class="ch.qos.logback.core.FileAppender">-->
+<!--        <file>fetch.log</file>-->
+<!--        <append>true</append>-->
+<!--        <encoder>-->
+<!--            <pattern>${CONSOLE_LOG_PATTERN}</pattern>-->
+<!--            <charset>utf8</charset>-->
+<!--        </encoder>-->
+<!--    </appender>-->
+<!--    <logger name="org.dbpedia.ldr.fetch" level="INFO">-->
+<!--        <appender-ref ref="FETCHLOG"/>-->
+<!--    </logger>-->
+<!--    <logger name="org.dbpedia.ldr.fetchsimple" level="INFO">-->
+<!--        <appender-ref ref="FETCHLOG"/>-->
+<!--    </logger>-->
+    <logger name="org.apache.jena.riot" level="OFF"/>
+    <root level="INFO">
+        <appender-ref ref="STDERR"/>
+    </root>
+</configuration>

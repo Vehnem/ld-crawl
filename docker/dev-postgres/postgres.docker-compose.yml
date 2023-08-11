@@ -1,0 +1,16 @@
+version: '3.1'
+
+services:
+  postgres:
+    image: postgres:15.0
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db
+    command: -c shared_buffers=4GB -c max_connections=200
+  adminer:
+    image: adminer
+    ports:
+      - "8083:8080"

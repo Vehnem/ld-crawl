@@ -1,0 +1,28 @@
+ldr:
+  crawl:
+    acceptHeader: "application/n-triples;q=1,text/turtle;q=0.9,application/n-quads;q=0.9,application/ld+json;q=0.8,application/rdf+xml;q=0.7,application/trig;q=0.7,*/*;q=0.5"
+    maxRedirects: 10
+    timeout: 10
+    minRetryAfter: 100 #ms
+    maxRetryAfter: 10000 #ms
+    writeBehindLimit: 100
+  data:
+    postgres:
+      url: "jdbc:postgresql://localhost:5432/db?cachePrepStmts=true&useServerPrepStmts=true&rewriteBatchedStatements=true"
+      user: "postgres"
+      password: "password"
+
+spring:
+  data:
+    mongodb:
+      host: 127.0.0.1
+      port: 27017
+      authentication-database: admin
+      username: mongodb
+      password: password
+      database: ldcrawler
+      auto-index-creation: true
+
+  redis:
+    redisson:
+      file: classpath:redisson.yaml

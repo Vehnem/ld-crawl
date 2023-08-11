@@ -1,0 +1,17 @@
+services:
+  api:
+    image: docker.io/library/ld-proxy:1.0-SNAPSHOT
+    ports:
+      - "9080:8080"
+    networks:
+      - back-tier
+    environment:
+      - "LDPROXY_DB=redis://db:6379"
+
+  db:
+    image: redis
+    networks:
+      - back-tier
+
+networks:
+  back-tier: {}
