@@ -13,7 +13,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.6</version>
+        <version>3.1.4</version>
         <!--        <relativePath/>-->
     </parent>
 
@@ -29,26 +29,30 @@
         <scala.version>3.3.0</scala.version>
 
         <spring.version>6.0.11.</spring.version>
-        <spring.boot.version>3.1.1</spring.boot.version>
+        <spring.boot.version>3.1.4</spring.boot.version>
 
         <springfox.version>3.0.0</springfox.version>
         <apache.jena>4.9.0</apache.jena>
     </properties>
 
     <repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-        <repository>
-            <id>akswnc7</id>
-            <name>DBpedia Development Repository</name>
-            <url>https://akswnc7.informatik.uni-leipzig.de/dav/mavenrepository/</url>
-        </repository>
+<!--        <repository>-->
+<!--            <id>jitpack.io</id>-->
+<!--            <url>https://jitpack.io</url>-->
+<!--        </repository>-->
+<!--        <repository>-->
+<!--            <id>akswnc7</id>-->
+<!--            <name>DBpedia Development Repository</name>-->
+<!--            <url>https://akswnc7.informatik.uni-leipzig.de/dav/mavenrepository/</url>-->
+<!--        </repository>-->
+<!--            <repository>-->
+<!--                <id>repository.spring.release</id>-->
+<!--                <name>Spring GA Repository</name>-->
+<!--                <url>https://repo.spring.io/release</url>-->
+<!--            </repository>-->
     </repositories>
 
     <dependencies>
-
         <!-- SCALA -->
         <dependency>
             <groupId>org.scala-lang</groupId>
@@ -65,127 +69,10 @@
             <artifactId>scalatest_3</artifactId>
             <scope>test</scope>
         </dependency>
-
-        <!-- DATABASE -->
-
-        <dependency>
-            <groupId>io.minio</groupId>
-            <artifactId>minio</artifactId>
-            <version>8.5.4</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.redisson</groupId>
-            <artifactId>redisson</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-dbcp2</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.rocksdb</groupId>
-            <artifactId>rocksdbjni</artifactId>
-        </dependency>
-
-<!-- https://mvnrepository.com/artifact/com.datastax.oss/java-driver-core -->
-<dependency>
-    <groupId>com.datastax.oss</groupId>
-    <artifactId>java-driver-core</artifactId>
-</dependency>
-
-
-        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk &ndash;&gt;-->
-        <!--        <dependency>-->
-        <!--            <groupId>com.amazonaws</groupId>-->
-        <!--            <artifactId>aws-java-sdk</artifactId>-->
-        <!--            <version>1.12.520</version>-->
-        <!--        </dependency>-->
-
-        <!-- SPRING -->
-
-        <dependency>
-           <groupId>org.springframework.boot</groupId>
-           <artifactId>spring-boot-starter-web</artifactId>
-       </dependency>
-
-        <!-- SPRING DATA -->
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb</artifactId>
-        </dependency>
-
-        <!--        <dependency>-->
-        <!--            <groupId>org.redisson</groupId>-->
-        <!--            <artifactId>redisson-spring-boot-starter</artifactId>-->
-        <!--        </dependency>-->
-
-               <dependency>
-                   <groupId>org.springframework.boot</groupId>
-                   <artifactId>spring-boot-starter-data-jpa</artifactId>
-               </dependency>
-
-        <!-- RDF -->
-
-        <dependency>
-            <groupId>org.apache.jena</groupId>
-            <artifactId>apache-jena-libs</artifactId>
-            <type>pom</type>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.jena</groupId>
-            <artifactId>jena-core</artifactId>
-        </dependency>
-
-        <!-- WEB -->
-
-        <dependency>
-            <groupId>com.squareup.okhttp3</groupId>
-            <artifactId>okhttp</artifactId>
-            <version>4.11.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>dnsjava</groupId>
-            <artifactId>dnsjava</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.github.seancfoley</groupId>
-            <artifactId>ipaddress</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.lihaoyi</groupId>
-            <artifactId>ujson_3</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.jsoup</groupId>
-            <artifactId>jsoup</artifactId>
-        </dependency>
-
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.boot</groupId>-->
-        <!--            <artifactId>spring-boot-starter-web</artifactId>-->
-        <!--            <exclusions>-->
-        <!--&lt;!&ndash;                <exclusion>&ndash;&gt;-->
-        <!--&lt;!&ndash;                    <groupId>org.springframework.boot</groupId>&ndash;&gt;-->
-        <!--&lt;!&ndash;                    <artifactId>spring-boot-starter-logging</artifactId>&ndash;&gt;-->
-        <!--&lt;!&ndash;                </exclusion>&ndash;&gt;-->
-        <!--                <exclusion>-->
-        <!--                    <groupId>org.apache.logging.log4j</groupId>-->
-        <!--                    <artifactId>log4j-to-slf4j</artifactId>-->
-        <!--                </exclusion>-->
-        <!--            </exclusions>-->
-        <!--        </dependency>-->
-
     </dependencies>
 
     <dependencyManagement>
+
         <dependencies>
             <!-- https://mvnrepository.com/artifact/org.scala-lang/scala3-compiler -->
             <dependency>
@@ -222,13 +109,38 @@
                 <version>${apache.jena}</version>
             </dependency>
 
-<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-cassandra -->
-<dependency>
-    <groupId>org.springframework.data</groupId>
-    <artifactId>spring-data-cassandra</artifactId>
-    <version>4.1.2</version>
-</dependency>
+            <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-cassandra -->
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.data</groupId>-->
+<!--                <artifactId>spring-data-cassandra</artifactId>-->
+<!--                <version>4.1.2</version>-->
+<!--            </dependency>-->
 
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-starter-data-jpa</artifactId>-->
+<!--                <version>${spring.boot.version}}</version>-->
+<!--            </dependency>-->
+
+            <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>1.4.11</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>2.0.9</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.monovore</groupId>
+                <artifactId>decline_3</artifactId>
+                <version>2.4.1</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.apache.jena</groupId>
@@ -236,17 +148,17 @@
                 <version>${apache.jena}</version>
             </dependency>
 
-<!-- https://mvnrepository.com/artifact/com.datastax.oss/java-driver-core -->
-<dependency>
-    <groupId>com.datastax.oss</groupId>
-    <artifactId>java-driver-core</artifactId>
-    <version>4.17.0</version>
-</dependency>
+            <!-- https://mvnrepository.com/artifact/com.datastax.oss/java-driver-core -->
+            <dependency>
+                <groupId>com.datastax.oss</groupId>
+                <artifactId>java-driver-core</artifactId>
+                <version>4.17.0</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson</artifactId>
-                <version>3.17.6</version>
+                <version>3.23.5</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/org.rocksdb/rocksdbjni -->
@@ -307,7 +219,7 @@
             <dependency>
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson</artifactId>
-                <version>3.17.6</version>
+                <version>3.23.5</version>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/info.picocli/picocli -->
@@ -328,7 +240,37 @@
                 <artifactId>ujson_3</artifactId>
                 <version>3.1.2</version>
             </dependency>
+
+
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>3.23.5</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-sql -->
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-sql_2.13</artifactId>
+                <version>3.5.0</version>
+            </dependency>
+
         </dependencies>
+
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-web</artifactId>-->
+        <!--            <exclusions>-->
+        <!--&lt;!&ndash;                <exclusion>&ndash;&gt;-->
+        <!--&lt;!&ndash;                    <groupId>org.springframework.boot</groupId>&ndash;&gt;-->
+        <!--&lt;!&ndash;                    <artifactId>spring-boot-starter-logging</artifactId>&ndash;&gt;-->
+        <!--&lt;!&ndash;                </exclusion>&ndash;&gt;-->
+        <!--                <exclusion>-->
+        <!--                    <groupId>org.apache.logging.log4j</groupId>-->
+        <!--                    <artifactId>log4j-to-slf4j</artifactId>-->
+        <!--                </exclusion>-->
+        <!--            </exclusions>-->
+        <!--        </dependency>-->
     </dependencyManagement>
 
     <build>

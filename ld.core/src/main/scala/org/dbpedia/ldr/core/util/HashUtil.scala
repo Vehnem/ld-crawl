@@ -6,7 +6,7 @@ import java.security.MessageDigest
 object HashUtil {
 
   private def md5sum(bytes: Array[Byte]): Array[Byte] = {
-    MessageDigest.getInstance("MD5").digest()
+    MessageDigest.getInstance("MD5").digest(bytes)
   }
 
   private def toHexString(bytes: Array[Byte]): String = {

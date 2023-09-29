@@ -1,6 +1,6 @@
 package org.dbpedia.ld.fetch
 
-import org.dbpedia.ldr.core.data.PostgresDataStore
+import org.dbpedia.ldr.core.db.postgres.PostgresDataStore
 import org.dbpedia.ldr.core.metadata.old.IriCollection
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component

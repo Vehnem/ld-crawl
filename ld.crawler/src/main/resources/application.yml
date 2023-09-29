@@ -6,11 +6,11 @@ ldr:
     minRetryAfter: 100 #ms
     maxRetryAfter: 10000 #ms
     writeBehindLimit: 100
-  data:
-    postgres:
-      url: "jdbc:postgresql://localhost:5432/db?cachePrepStmts=true&useServerPrepStmts=true&rewriteBatchedStatements=true"
-      user: "postgres"
-      password: "password"
+#  data:
+#    postgres:
+#      url: "jdbc:postgresql://localhost:5432/db?cachePrepStmts=true&useServerPrepStmts=true&rewriteBatchedStatements=true"
+#      user: "postgres"
+#      password: "password"
 
 spring:
   data:

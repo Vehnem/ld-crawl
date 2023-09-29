@@ -1,11 +1,11 @@
 spring:
-  data:
-    cassandra:
-      keyspace-name: testKeySpace
-      contact-points:
-        - 127.0.0.1:9043
-      local-datacenter: datacenter1
-      schema-action: CREATE_IF_NOT_EXISTS
+#  data:
+#    cassandra:
+#      keyspace-name: testKeySpace
+#      contact-points:
+#        - 127.0.0.1:9043
+#      local-datacenter: datacenter1
+#      schema-action: CREATE_IF_NOT_EXISTS
 #        datastax-java-driver.advanced.connection.warn-on-init-error = false
 
 #basic:

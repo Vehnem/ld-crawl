@@ -1,4 +1,4 @@
-package org.dbpedia.ldr.core.data
+package org.dbpedia.ldr.core.db.postgres
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.context.annotation.Configuration

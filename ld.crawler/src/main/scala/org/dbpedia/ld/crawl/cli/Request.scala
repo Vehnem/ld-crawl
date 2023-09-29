@@ -3,7 +3,7 @@
 //import org.dbpedia.ld.crawl.config.DomainWorkerConfig
 //import org.dbpedia.ld.crawl.store.DataStoreService
 //import org.dbpedia.ld.crawl.worker.tmp.{RedisHostBalancer, WorkerExecution}
-//import org.dbpedia.ldr.core.data.PostgresDataStore
+//import org.dbpedia.ldr.core.db.postgres.PostgresDataStore
 //import org.dbpedia.ldr.core.metadata.old.IriCollection
 //import org.springframework.stereotype.Component
 //import picocli.CommandLine.{Command, Option}

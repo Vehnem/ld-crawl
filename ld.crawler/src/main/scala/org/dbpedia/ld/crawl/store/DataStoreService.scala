@@ -1,7 +1,7 @@
 package org.dbpedia.ld.crawl.store
 
 import org.apache.commons.dbcp2.BasicDataSource
-import org.dbpedia.ldr.core.data.PostgresDataStore
+import org.dbpedia.ldr.core.db.postgres.PostgresDataStore
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 

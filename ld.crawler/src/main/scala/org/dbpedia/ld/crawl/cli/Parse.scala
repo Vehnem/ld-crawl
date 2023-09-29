@@ -2,7 +2,7 @@
 //
 //import org.dbpedia.ld.crawl.parser.ParserThread
 //import org.dbpedia.ld.crawl.worker.tmp.RedisJournalService
-//import org.dbpedia.ldr.core.data.PostgresDataStore
+//import org.dbpedia.ldr.core.db.postgres.PostgresDataStore
 //import org.dbpedia.ldr.core.metadata.{FetchResultCollection, ParseResultCollection}
 //import org.springframework.data.mongodb.core.MongoTemplate
 //import org.springframework.stereotype.Component

@@ -1,7 +1,7 @@
 package org.dbpedia.ld.parse
 
 import org.dbpedia.ldr.core.balancer.WorkBalancer
-import org.dbpedia.ldr.core.data.PostgresDataStore
+import org.dbpedia.ldr.core.db.postgres.PostgresDataStore
 import org.dbpedia.ldr.core.metadata.old.{FetchResultCollection, IriCollection, ParseResultCollection}
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service

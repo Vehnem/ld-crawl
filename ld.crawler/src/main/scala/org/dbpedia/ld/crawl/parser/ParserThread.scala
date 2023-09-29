@@ -1,7 +1,7 @@
 //package org.dbpedia.ld.crawl.parser
 //
 //import org.apache.commons.io.output.ByteArrayOutputStream
-//import org.dbpedia.ldr.core.data.PostgresDataStore
+//import org.dbpedia.ldr.core.db.postgres.PostgresDataStore
 //import org.dbpedia.ldr.core.metadata.{ParseResultCollection, ParseResultDoc}
 //import org.dbpedia.ldr.core.util.{GZUtil, HashUtil}
 //import org.dbpedia.ldx.io.{DataMgr, Format}

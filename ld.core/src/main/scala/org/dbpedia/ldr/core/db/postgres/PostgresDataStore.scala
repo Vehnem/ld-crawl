@@ -1,4 +1,4 @@
-package org.dbpedia.ldr.core.data
+package org.dbpedia.ldr.core.db.postgres
 
 import org.apache.commons.dbcp2.BasicDataSource
 import org.springframework.stereotype.Service

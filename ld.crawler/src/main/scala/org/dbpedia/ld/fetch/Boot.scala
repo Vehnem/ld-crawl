@@ -1,7 +1,7 @@
 package org.dbpedia.ld.fetch
 
 import org.dbpedia.ldr.core.balancer.{RedisHostBalancer, WorkBalancer}
-import org.dbpedia.ldr.core.data.{PostgresDataStore, PostgresDataStoreConfig}
+import org.dbpedia.ldr.core.db.postgres.{PostgresDataStore, PostgresDataStoreConfig}
 import org.dbpedia.ldr.core.dns.{DnsCache, DnsResolver, PublicDnsResolver}
 import org.dbpedia.ldr.core.filter.{HostFilter, IpBasedHostFilter, NoHostFilter}
 import org.dbpedia.ldr.core.metadata.old.{FetchResultCollection, HostCollection, IriCollection, ParseResultCollection}

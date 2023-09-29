@@ -24,14 +24,6 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <version>${spring.boot.version}</version>
-<!--            <scope>test</scope>-->
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
@@ -41,46 +33,157 @@
             <artifactId>redisson-spring-boot-starter</artifactId>
             <version>3.18.0</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>${spring.boot.version}</version>
         </dependency>
+
         <dependency>
             <groupId>info.picocli</groupId>
             <artifactId>picocli-spring-boot-starter</artifactId>
             <version>4.7.3</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-cassandra -->
-<!-- <dependency>
-    <groupId>org.springframework.data</groupId>
-    <artifactId>spring-data-cassandra</artifactId>
-    <version>4.1.2</version>
-</dependency> -->
-        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-cassandra -->
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-cassandra</artifactId>
-            <version>${spring.boot.version}</version>
-        </dependency>
-<!-- https://mvnrepository.com/artifact/com.datastax.oss/java-driver-core -->
-<dependency>
-    <groupId>com.datastax.oss</groupId>
-    <artifactId>java-driver-core</artifactId>
-    <version>4.17.0</version>
-</dependency>
-               <dependency>
-                   <groupId>org.springframework.boot</groupId>
-                   <artifactId>spring-boot-starter-data-jpa</artifactId>
-               </dependency>
-<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
-<dependency>
-    <groupId>org.springframework.data</groupId>
-    <artifactId>spring-data-jpa</artifactId>
-    <version>3.1.1</version>
-</dependency>
 
+        <dependency>
+            <groupId>io.minio</groupId>
+            <artifactId>minio</artifactId>
+            <version>8.5.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>testcontainers</artifactId>
+            <version>1.18.3</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <executions>
+                    <!--                # Compile the unit test classes to the unit test output directory-->
+                    <execution>
+                        <id>default-testCompile</id>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                        <phase>test-compile</phase>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/test-classes</outputDirectory>
+                            <compileSourceRoots>
+                                <sourceRoot>${basedir}/src/test/java</sourceRoot>
+                            </compileSourceRoots>
+                        </configuration>
+                    </execution>
+                    <!--                # Compile the integration test classes to the integration test output directory-->
+                    <execution>
+                        <id>compile-integration-tests</id>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                        <phase>pre-integration-test</phase>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/integration-test-classes</outputDirectory>
+                            <compileSourceRoots>
+                                <sourceRoot>${basedir}/src/integration-test/java</sourceRoot>
+                            </compileSourceRoots>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <!--    # Copy resources for the unit test resources files to the unit test output directory-->
+                    <execution>
+                        <id>default-testResources</id>
+                        <goals>
+                            <goal>testResources</goal>
+                        </goals>
+                        <phase>process-test-resources</phase>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/test-classes</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}/src/test/resources</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <!--    # Copy resources for the integration test resources files to the integration test output directory-->
+                    <execution>
+                        <id>add-integration-test-resources</id>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <phase>pre-integration-test</phase>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/integration-test-classes</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}/src/integration-test/resources</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <testClassesDirectory>${basedir}/target/test-classes</testClassesDirectory>
+                    <testSourceDirectory>${basedir}/src/test/java</testSourceDirectory>
+                    <includes>
+                        <include>**/*.class</include>
+                    </includes>
+<!--                    <argLine>${jacoco.agent.ut.arg}</argLine>-->
+                    <testFailureIgnore>false</testFailureIgnore>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>integration-test</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>integration-test</goal>
+                        </goals>
+                        <configuration>
+                            <includes>
+                                <include>**/*.class</include>
+                            </includes>
+                            <classesDirectory>${project.build.outputDirectory}</classesDirectory>
+                            <testClassesDirectory>${basedir}/target/integration-test-classes</testClassesDirectory>
+                            <testSourceDirectory>${basedir}/src/integration-test/java</testSourceDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>verify</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>verify</goal>
+                        </goals>
+                        <configuration>
+                            <testFailureIgnore>false</testFailureIgnore>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

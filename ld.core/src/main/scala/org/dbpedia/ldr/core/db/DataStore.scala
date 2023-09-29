@@ -1,4 +1,4 @@
-package org.dbpedia.ldr.core.data
+package org.dbpedia.ldr.core.db
 
 import java.io.{File, InputStream}
 

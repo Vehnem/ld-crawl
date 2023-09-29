@@ -2,7 +2,7 @@ package org.dbpedia.ld.parse
 
 //import org.apache.catalina.core.StandardContext
 import org.bson.Document
-import org.dbpedia.ldr.core.data.PostgresDataStore
+import org.dbpedia.ldr.core.db.postgres.PostgresDataStore
 import org.dbpedia.ldr.core.monitor.ThroughPutWatch
 import org.dbpedia.ldr.core.util.GZUtil
 import org.springframework.data.mongodb.core.MongoTemplate

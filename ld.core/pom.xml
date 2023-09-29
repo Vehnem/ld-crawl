@@ -12,19 +12,52 @@
     <artifactId>ld.core</artifactId>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/com.datastax.oss/java-driver-core -->
+<!--        <dependency>-->
+<!--            <groupId>com.datastax.oss</groupId>-->
+<!--            <artifactId>java-driver-core</artifactId>-->
+<!--            <version>4.17.0</version>-->
+<!--        </dependency>-->
+
         <dependency>
-            <groupId>com.datastax.oss</groupId>
-            <artifactId>java-driver-core</artifactId>
-            <version>4.17.0</version>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
         </dependency>
-        
-        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-cassandra -->
-        <!-- <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-cassandra</artifactId>
-            <version>${spring.boot.version}</version>
-        </dependency> -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-data-jpa</artifactId>-->
+<!--        </dependency>-->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>apache-jena-libs</artifactId>
+            <type>pom</type>
+        </dependency>
+
+        <dependency>
+            <groupId>dnsjava</groupId>
+            <artifactId>dnsjava</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.seancfoley</groupId>
+            <artifactId>ipaddress</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -35,6 +68,32 @@
             <groupId>com.lihaoyi</groupId>
             <artifactId>ujson_3</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.monovore</groupId>
+            <artifactId>decline_3</artifactId>
+        </dependency>
+
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.spark/spark-sql &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.spark</groupId>-->
+<!--            <artifactId>spark-sql_2.13</artifactId>-->
+<!--        </dependency>-->
+
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>javax.servlet</groupId>-->
+<!--            <artifactId>javax.servlet-api</artifactId>-->
+<!--            <version>4.0.1</version>-->
+<!--        </dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/co.fs2/fs2-io -->
+        <dependency>
+            <groupId>co.fs2</groupId>
+            <artifactId>fs2-io_2.13</artifactId>
+            <version>3.9.2</version>
+        </dependency>
+
 
     </dependencies>
 </project>
